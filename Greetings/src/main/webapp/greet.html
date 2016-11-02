@@ -5,7 +5,22 @@
 <title>Greeting</title>
 </head>
 <body>
-<h1>Thanks for Coming  <span id="fname"></span></h1>
-
+	<h1>
+		Thanks for Coming <span id="fname"></span>
+	</h1>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<script>
+		
+		(function updateRelationship(){
+			var relationType = location.search.split("?")[1].split("=")[1];
+			
+			$("#fname").text(relationType);
+		}());
+	</script>
 </body>
 </html>

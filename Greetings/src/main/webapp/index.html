@@ -5,7 +5,7 @@
 <title>Greetings</title>
 </head>
 <body>
-<h1>Hello World</h1>
+<h1>Greeting App</h1>
 <div>
  <form>
  <div>
@@ -14,7 +14,7 @@
   </div>
   <div>
   <label>Greetings Send To:</label>  
-  <select name="Relation">  	   
+  <select name="relation">  	   
   <option value="Friend">Friend</option>
   <option value="Boyfriend">Boyfriend</option>
   <option value="Girlfriend">Girlfriend</option>
@@ -27,20 +27,21 @@
   </div>
   <div>
    <label >Type Your Greetings Here:</label>
-   <textarea name="About Relation" rows="1" cols="50"> </textarea> 
+   <textarea name="aboutRelation" rows="1" cols="50"></textarea> 
   </div> 
   <h1>Types text is:  <span id="greeting"></span>	</h1>
-  <button type="submit" onclick="onClickSubmit()" value="Submit">Submit</button>
+  <button type="button" onclick="onClickSubmit()" value="Submit">Submit</button>
 </form> 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
 	<script>
 		function onClickSubmit(){
-			var fname = document.querySelectorAll('input[name="fname"]')[0].value;
-				relation   = document.querySelectorAll('[name="Relation"]')[0].value;
-				message	   = document.querySelectorAll('[name="About Relation"]')[0].value;	
-				url		   = "http://localhost:8080/greet.html";
+			var fname 		= document.querySelectorAll('[name="fname"]')[0].value,
+				relation    = document.querySelectorAll('[name="relation"]')[0].value,
+				message	    = document.querySelectorAll('[name="aboutRelation"]')[0].value,	
+				greetingUrl = "http://localhost:8080/greet.html";
+				
 	        $.ajax({
 	        	url         : "http://localhost:8080/greeting",
 	        	method      : 'POST',
@@ -52,7 +53,9 @@
        			  "message": message
 	        	}),
 	        	success : function(response){	
+	        		$("#greeting").html(relation);
 	        		alert("Request Success!");
+	        		location.href = greetingUrl+'?relationType='+relation + '?message='+response.message;
 	        	},
 	        	failure : function(response){
 	        		alert("Request failed!");
