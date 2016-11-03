@@ -17,14 +17,20 @@ h1 {
 #returntext{
 	  position : absolute;	
 	  top : 50px;
-	  right: 100px;	  
+	  right: 80px;	  
+	  width: 150px;
+      height: 300px;
+      word-wrap:break-word;
 }
 
 #byname{
 	position : absolute;	
-	  top : 100px;
-	  right: 100px;
+	  top : 200px;
+	  right: 80px;
+	  width: 50px;
+      height: 350px;
 }
+
 #bgoverlay{
 	position : absolute;	
  	background-color: rgba(248, 247, 216, 0.5);
